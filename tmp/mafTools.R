@@ -4,7 +4,7 @@ library(maftools)
 vcf_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/strelka2'
 
 vcfs <- list.files(vcf_path,
-                   pattern = "*\\_postCalling\\.vcf",
+                   pattern = "*\\_postCalling\\.vcf$",
                    full.names = T,
                    recursive = T)
 
