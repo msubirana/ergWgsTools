@@ -1047,7 +1047,7 @@ bcftoolsReheader <- function(bcftools,
   vcf_old_names <- system(paste(bcftools,
                                 'query -l', vcf), intern = T)
 
-  new_header_file <- file.path(out_path, paste0(sample_name, '.header'))
+  new_header_file <- file.path(dirname(vcf), paste0(sample_name, '.header'))
 
   new_header_vcf <- paste(c(vcf_old_names[1], " ",
                             vcf_new_names[1], '\n',
