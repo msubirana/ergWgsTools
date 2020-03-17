@@ -12,48 +12,47 @@ ref <- '/imppc/labs/lplab/share/marc/refgen/hg38/hg38.fa'
 gatk3 <- '/soft/bio/gatk-3.8/GenomeAnalysisTK.jar'
 vcf2maf <- '/imppc/labs/lplab/share/marc/repos/vcf2maf/vcf2maf.pl'
 maf_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/strelka2'
+out_maftools <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/maf/mafTools'
+maf_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/strelka2'
 
-
-for(vcf in vcfs){
-
-  sample_name <- paste0(unlist(strsplit(basename(vcf), "_"))[1], "_")
-  sub_list <- vcfs[grepl(sample_name, vcfs)]
-  snv_vcf <- sub_list[grepl("snvs", sub_list)]
-  indel_vcf <- sub_list[grepl("indels", sub_list)]
-  vcf_merged <- file.path(maf_path, paste0(gsub("_", "", sample_name), ".vcf"))
-  maf <- file.path(maf_path, paste0(gsub("_", "", sample_name), ".maf"))
-
-  # merge snvs, indels
-
-  system(paste('java -jar',
-               gatk3,
-               '-T CombineVariants',
-               '-R', ref,
-               '-genotypeMergeOptions PRIORITIZE',
-               '--rod_priority_list snv,indel',
-               '--variant:snv', snv_vcf,
-               '--variant:indel', indel_vcf,
-               '-o', vcf_merged))
-
-  tumor_id <- "TUMOR"
-  normal_id <- "NORMAL"
-  # vcf to maf and vep annotation
-
-  system(paste('perl',
-               vcf2maf,
-               '--input-vcf', vcf_merged,
-               '--output-maf', maf,
-               '--tumor-id', tumor_id,
-               '--normal-id', normal_id,
-               '--vep-path /imppc/labs/lplab/share/bin/ensembl-vep',
-               '--ref-fasta', ref,
-               '--filter-vcf 0',
-               '--ncbi-build GRCh38',
-               '--vep-data /imppc/labs/lplab/share/bin/ensembl-vep/cache'))
-
-  out_maftools <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/maf/mafTools'
-  maf_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/strelka2'
-}
+sample_names <- unlist(lapply(vcfs, function(vcf) paste0(unlist(strsplit(basename(vcf), "_"))[1], "_")))
+sample_names <- unique(sample_names)
+# for(sample_name in sample_names){
+#   sub_list <- vcfs[grepl(sample_name, vcfs)]
+#   snv_vcf <- sub_list[grepl("snvs", sub_list)]
+#   indel_vcf <- sub_list[grepl("indels", sub_list)]
+#   vcf_merged <- file.path(maf_path, paste0(gsub("_", "", sample_name), ".vcf"))
+#   maf <- file.path(maf_path, paste0(gsub("_", "", sample_name), ".maf"))
+#   # merge snvs, indels
+#
+#   system(paste('java -jar',
+#                gatk3,
+#                '-T CombineVariants',
+#                '-R', ref,
+#                '-genotypeMergeOptions PRIORITIZE',
+#                '--rod_priority_list snv,indel',
+#                '--variant:snv', snv_vcf,
+#                '--variant:indel', indel_vcf,
+#                '-o', vcf_merged))
+#
+#   tumor_id <- "TUMOR"
+#   normal_id <- "NORMAL"
+#   # vcf to maf and vep annotation
+#
+#   system(paste('perl',
+#                vcf2maf,
+#                '--input-vcf', vcf_merged,
+#                '--output-maf', maf,
+#                '--tumor-id', tumor_id,
+#                '--normal-id', normal_id,
+#                '--vep-path /imppc/labs/lplab/share/bin/ensembl-vep',
+#                '--ref-fasta', ref,
+#                '--filter-vcf 0',
+#                '--ncbi-build GRCh38',
+#                '--vep-data /imppc/labs/lplab/share/bin/ensembl-vep/cache'))
+#
+#
+# }
 
 
 library(maftools)
