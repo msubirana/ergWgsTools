@@ -5,6 +5,7 @@
 #' BAM to FASTQ conversion is carried out by Picard's SamToFastq.
 #'
 #' @inheritParams somaticWgsAnalysis
+#' @param type_input_file Define type of input file (bam or fastq). By default fastq.
 #' @examples
 #' \dontrun{
 #' bwaAlignment(input_file = 'raw/sample_R1.fa',
@@ -14,6 +15,7 @@
 #' }
 #' @export
 bwaAlignment <- function(input_file,
+                         type_input_file = 'fastq',
                          ref,
                          out_path,
                          threads,
@@ -22,13 +24,8 @@ bwaAlignment <- function(input_file,
                          bwa = 'bwa',
                          samblaster = 'samblaster',
                          samtools = 'samtools'){
-  # define input type
-  type_input_file <- if(any(c('fastq', 'fq', 'gz') %in% unlist(strsplit(input_file, ".", fixed = TRUE)))) 'fastq'
-  type_input_file <- if(any('bam' %in% unlist(strsplit(input_file, ".", fixed = TRUE)))) 'bam'
 
-  if(exists(type_input_file)) message('Error: file should be BAM or FASTQ type')
-
-  # generate bam index if it is not present
+    # generate bam index if it is not present
   if(type_input_file == 'bam'){
 
     system(paste(sambamba, "index",
