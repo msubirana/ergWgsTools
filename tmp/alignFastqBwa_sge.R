@@ -12,7 +12,7 @@ for(fastq in fastqs){
   name = paste0('bwa_', sample_name)
   queue = 'imppcv3'
   log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
-  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/alignFastqBwa.R',
+  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/bwaAlignment.R',
                  fastq,
                  out_path)
 
