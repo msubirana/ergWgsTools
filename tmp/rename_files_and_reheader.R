@@ -34,12 +34,15 @@ for(i in seq(nrow(df_rename))){
 
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
 
-bams <- paste0(path, "/", df_rename$new_names, ".bam")
-out_path <- '/media/msubirana/IGTP20228/insulinomas/processed/hg38/bam/bwa/reheader'
+bams <- list.files('/media/msubirana/IGTP20228/insulinomas/processed/hg38/bam/bwa/forRh',
+                   pattern = '\\.bam$',
+                   full.names = T)
+
+out_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/reheader'
 
 for(bam in bams){
 
-  reheaderBam(bam, out_path)
+  reheaderBam(bam = bam, out_path = out_path)
 
 }
 

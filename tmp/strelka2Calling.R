@@ -17,6 +17,7 @@ args <- commandArgs(trailingOnly = TRUE)
 tumor_file <- args[1]
 normal_file <- args[2]
 sample_name <- args[3]
+out_path <- args[4]
 
 # check BAM indexes
 sambambaIndex(bam = tumor_file,
