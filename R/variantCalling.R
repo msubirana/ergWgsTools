@@ -1163,6 +1163,7 @@ postCalling <- function(pass_vcf,
   corr_vcf <- gsub("_PASS.vcf", "_corr.vcf", pass_vcf)
 
   system(paste(gatk4,
+               "--java-options '-Xmx8g'",
                'SelectVariants',
                '-V', pass_vcf,
                '-O', corr_vcf,
