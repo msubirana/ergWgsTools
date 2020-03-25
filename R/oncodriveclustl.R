@@ -29,7 +29,7 @@ oncodriveclustl <- function(input,
                 cores, 'as cores used'))
 
   # activate venv
-  system(paste('activate-oncodriveCLUSTL-v1.1.1'))
+  system(paste('source /software/debian-8/general/virtenvs/oncodriveCLUSTL-v1.1.1-py3/bin/activate'))
 
   # run oncodriveclustl
   system(paste('oncodriveclustl',

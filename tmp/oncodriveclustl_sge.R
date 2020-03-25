@@ -20,6 +20,5 @@ RtoSge::toSge(cores = cores,
               name = name,
               queue = queue,
               log = log,
-              memmory = memmory,
               script = script,
               email = email)
