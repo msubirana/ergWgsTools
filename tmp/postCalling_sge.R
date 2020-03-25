@@ -1,10 +1,12 @@
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
 vcf_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/strelka2'
-
+vcf_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/strelka2/NET-21_out_strelka2/results/variants'
 vcfs <- list.files(vcf_path,
                    pattern = "*\\_PASS\\.vcf",
-                   full.names = T,
-                  recursive = T)
+                   full.names = T
+                  #  ,
+                  # recursive = T
+                  )
 
 for(vcf in vcfs){
 
@@ -18,11 +20,12 @@ for(vcf in vcfs){
                  vcf)
 
   email = 'clusterigtpmsubirana@gmail.com'
-
+  memmory = 10
   RtoSge::toSge(cores = cores,
                 name = name,
                 queue = queue,
                 log = log,
+                memmory = memmory,
                 script = script,
                 email = email)
 
