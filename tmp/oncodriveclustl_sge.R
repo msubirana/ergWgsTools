@@ -1,19 +1,22 @@
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
 
-input <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/vcf/INS_REs_oncodrive_sub.regions'
+input <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/vcf/insulinomas_sub.tsv'
 regions <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/INS_REs_oncodrive.regions.gz'
 output_dir <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/vcf/oncodriveclustl_results'
 genome <- 'hg38'
-cores = 28
+cores = 16
 name = 'odCLUST_insu'
 queue = 'imppcv3'
 log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
 
-script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/oncodriveclustl.R',
+script = paste0('export LC_ALL=C.UTF-8\n',
+               'export LANG=C.UTF-8\n',
+               'source /software/debian-8/general/virtenvs/oncodriveCLUSTL-v1.1.1-py3/bin/activate\n',
+               paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/oncodriveclustl.R',
                input,
                regions,
                output_dir,
-               genome)
+               genome))
 
 email = 'clusterigtpmsubirana@gmail.com'
 RtoSge::toSge(cores = cores,
