@@ -876,10 +876,44 @@ sambambaIndex <- function(bam,
     message(paste(Sys.time(),"\n", 'Finished', bam, '\n'))
 
   }
-
-
 }
 
+#' sambambaIndex
+#'
+#' @description
+#' Generate BAM index if it is not present using sambamba
+#'
+#' @inheritParams variantCalling
+#' @examples
+#' \dontrun{
+#' sambambaIndex(bam = 'raw/sample_tumor.bam',
+#'             threads = 2,
+#'             sambamba = '/bin/sambamba')
+#'}
+#'
+#' @export
+samtoolsIndex <- function(bam,
+                          threads,
+                          samtools){
+
+  index <- paste0(bam, '.bai')
+
+  if(!file.exists(index)){
+
+    message(paste(Sys.time(),"\n",
+                  'Index for', bam, 'not present.\n\n',
+                  'Starting BAM index generation using:\n',
+                  '>BAM file:', bam, '\n',
+                  '>Number of threads:', threads, '\n'))
+
+    system(paste(samtools, "index",
+                 "-@", threads,
+                 bam))
+
+    message(paste(Sys.time(),"\n", 'Finished', bam, '\n'))
+
+  }
+}
 
 #' radia
 #'
