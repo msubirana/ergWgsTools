@@ -13,3 +13,5 @@ bwaAlignment(input_file = fastq,
              out_path = out_path,
              threads = threads)
 
+
+

@@ -14,7 +14,7 @@ for(tsv in tsvs){
 
 tsv_table_all$file_name <- lapply(tsv_table_all$file_name, function(x) gsub('.bam', '', x))
 
-path <- '/imppc/labs/lplab/share/marc/icgc_downloads'
+path <- '/media/msubirana/plab1/icgc_downloads'
 
 for(i in seq(nrow(tsv_table_all))){
   system(paste0('rename ',
@@ -24,3 +24,18 @@ for(i in seq(nrow(tsv_table_all))){
                 '/\' ',
                 path, '/*'))
 }
+
+csv_file <- '/imppc/labs/lplab/share/marc/insulinomas/raw/rename_pnets.csv'
+csv <- read.csv(csv_file, header = F)
+colnames(csv) <- c('icgc_name', 'erg_name')
+path <- ''
+
+for(i in seq(nrow(csv))){
+  system(paste0('rename ',
+                '\'s/',
+                csv$icgc_name[i],
+                '/', csv$erg_name[i],
+                '/\' ',
+                path, '*'))
+  }
+

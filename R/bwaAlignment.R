@@ -25,16 +25,16 @@ bwaAlignment <- function(input_file,
                          samblaster = 'samblaster',
                          samtools = 'samtools'){
 
-    # generate bam index if it is not present
-  if(type_input_file == 'bam'){
-
-    system(paste(sambamba, "index",
-                 "-t", threads,
-                 input_file))
-  }
-
   # bam to fastq
   if(type_input_file == 'bam'){
+    # if index does not exists, create it
+    index <- paste0(input_file, '.bai')
+
+    if(!file.exists(index)){
+      samtoolsIndex(bam = bam,
+                    threads = threads,
+                    samtools = samtools)
+    }
 
     input_file <- bamTofastqPicard(input_file,
                                    ref,
@@ -76,7 +76,7 @@ bwaAlignment <- function(input_file,
                  sambamba, 'view',
                  '-t', threads, '-S',
                  '-f bam /dev/stdin |',
-                 samtools,'sort', # memmory problems with sambamba sort
+                 samtools,'sort -n', # memmory problems with sambamba sort
                  #'-n', # sort by names
                  '-@', threads,
                  '-o', out_bam, ';',
@@ -95,7 +95,7 @@ bwaAlignment <- function(input_file,
                  sambamba, 'view',
                  '-t', threads, '-S',
                  '-f bam /dev/stdin |',
-                 samtools,'sort', # memmory problems with sambamba sort
+                 samtools,'sort -n', # memmory problems with sambamba sort
                  #'-n', # sort by names
                  '-@', threads,
                  '-o', out_bam, ';',
