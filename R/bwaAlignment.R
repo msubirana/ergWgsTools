@@ -46,6 +46,7 @@ bwaAlignment <- function(input_file,
 
   # define fastq type
   name_non_ext <- basename(gsub("\\..*", "", (input_file)))
+  sm_name <- gsub('_R1', '', name_non_ext)
   out_bam <- file.path(out_path, paste0(name_non_ext, ".bam"))
   out_bam <- gsub("_R1", "", out_bam)
   input_file2 <- gsub('R1', 'R2', input_file)

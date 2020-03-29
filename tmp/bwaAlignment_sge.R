@@ -46,7 +46,7 @@ for(bam in bams){
                type_input_file = 'bam',
                ref = ref,
                out_path = out_path,
-               threads = 6,
+               threads = 10,
                gatk4 = '/imppc/labs/lplab/share/bin/gatk-4.1.3.0/gatk',
                sambamba = 'sambamba',
                bwa = 'bwa',
