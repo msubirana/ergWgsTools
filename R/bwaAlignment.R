@@ -70,14 +70,14 @@ bwaAlignment <- function(input_file,
 
     system(paste(bwa, 'mem -M',
                  '-t', threads,
-                 paste0("-R \"@RG\\tID:", name_non_ext, "\\tPU:1\\tSM:", name_non_ext, "\\tPL:ILLUMINA\""),
+                 paste0("-R \"@RG\\tID:", sm_name, "\\tPU:1\\tSM:", sm_name, "\\tPL:ILLUMINA\""),
                  ref,
                  input_file, "|",
                  samblaster, '-M |',
                  sambamba, 'view',
                  '-t', threads, '-S',
                  '-f bam /dev/stdin |',
-                 samtools,'sort -n', # memmory problems with sambamba sort
+                 samtools,'sort ', # memmory problems with sambamba sort
                  #'-n', # sort by names
                  '-@', threads,
                  '-o', out_bam, ';',
@@ -89,14 +89,14 @@ bwaAlignment <- function(input_file,
 
     system(paste(bwa, 'mem -M',
                  '-t', threads,
-                 paste0("-R \"@RG\\tID:", name_non_ext, "\\tPU:1\\tSM:", name_non_ext, "\\tPL:ILLUMINA\""),
+                 paste0("-R \"@RG\\tID:", sm_name, "\\tPU:1\\tSM:", sm_name, "\\tPL:ILLUMINA\""),
                  ref,
                  input_file, input_file2, "|",
                  samblaster, '-M |',
                  sambamba, 'view',
                  '-t', threads, '-S',
                  '-f bam /dev/stdin |',
-                 samtools,'sort -n', # memmory problems with sambamba sort
+                 samtools,'sort ', # memmory problems with sambamba sort
                  #'-n', # sort by names
                  '-@', threads,
                  '-o', out_bam, ';',
