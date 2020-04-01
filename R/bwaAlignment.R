@@ -89,23 +89,41 @@ bwaAlignment <- function(input_file,
 
   } else if (type == 'paired'){
 
+    #' system(paste(bwa, 'mem -M',
+    #'              '-t', threads,
+    #'              paste0("-R \"@RG\\tID:", sm_name, "\\tPU:1\\tSM:", sm_name, "\\tPL:ILLUMINA\""),
+    #'              ref,
+    #'              input_file, input_file2, "|",
+    #'              samtools, 'sort -n - -',
+    #'              '-@', threads, '|',
+    #'              samblaster, '-M |',
+    #'              sambamba, 'view',
+    #'              '-t', threads, '-S',
+    #'              '-f bam /dev/stdin |',
+    #'              samtools,'sort ', # memmory problems with sambamba sort
+    #'              #'-n', # sort by names
+    #'              '-@', threads,
+    #'              '-o', out_bam, ';',
+    #'              sambamba, "index",
+    #'              "-t", threads,
+    #'              out_bam))
+
     system(paste(bwa, 'mem -M',
                  '-t', threads,
                  paste0("-R \"@RG\\tID:", sm_name, "\\tPU:1\\tSM:", sm_name, "\\tPL:ILLUMINA\""),
                  ref,
                  input_file, input_file2, "|",
-                 samtools, 'sort -n - -',
-                 '-@', threads, '|',
-                 samblaster, '-M |',
-                 sambamba, 'view',
-                 '-t', threads, '-S',
-                 '-f bam /dev/stdin |',
-                 samtools,'sort ', # memmory problems with sambamba sort
-                 #'-n', # sort by names
+                 samtools, 'view',
                  '-@', threads,
-                 '-o', out_bam, ';',
-                 sambamba, "index",
-                 "-t", threads,
+                 '-Shu - |',
+                 samtools, 'sort',
+                 '-@', threads,
+                 '- - |',
+                 samtools, 'markdup',
+                 '-@', threads,
+                 '-',  out_bam, ';',
+                 samtools, "index",
+                 "-@", threads,
                  out_bam))
   }
 
