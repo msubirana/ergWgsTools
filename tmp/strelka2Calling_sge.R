@@ -21,7 +21,7 @@ for(bam in bams){
   sample_name <- gsub("_.*", '', basename(bam))
 
   # strelka2Calling
-  cores = 28
+  cores = 8
   name = paste0(sample_name, '_strelka2Calling')
   queue = 'imppcv3'
   log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
