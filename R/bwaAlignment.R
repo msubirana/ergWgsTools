@@ -85,6 +85,8 @@ bwaAlignment <- function(input_file,
                  "-t", threads,
                  out_bam))
 
+
+
   } else if (type == 'paired'){
 
     #' system(paste(bwa, 'mem -M',
@@ -114,6 +116,12 @@ bwaAlignment <- function(input_file,
                  samtools, 'view',
                  '-@', threads,
                  '-Shu - |',
+                 samtools, 'sort -n',
+                 '-@', threads,
+                 '- |',
+                 samtools, 'fixmate -m',
+                 '-@', threads,
+                 '- |',
                  samtools, 'sort',
                  '-@', threads,
                  '- |',

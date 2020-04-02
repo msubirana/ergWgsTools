@@ -55,5 +55,28 @@ for(bam in bams){
 
 }
 
+###
+fq_path <- '/home/labs/lplab/msubirana/Desktop/icgc_downloads'
+out_path <- '/media/msubirana/plab1/hg38'
+devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
+ref <- '/imppc/labs/lplab/share/marc/refgen/hg38/hg38.fa'
 
+fqs <- list.files(fq_path,
+                   pattern = '\\_R1.fq$',
+                   full.names = T)
+
+for(fq in fqs){
+
+  bwaAlignment(input_file = fq,
+               type_input_file = 'fastq',
+               ref = ref,
+               out_path = out_path,
+               threads = 10,
+               gatk4 = '/imppc/labs/lplab/share/bin/gatk-4.1.3.0/gatk',
+               sambamba = 'sambamba',
+               bwa = 'bwa',
+               samblaster = 'samblaster',
+               samtools = 'samtools')
+
+}
 
