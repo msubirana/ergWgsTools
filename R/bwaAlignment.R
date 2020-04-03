@@ -80,7 +80,7 @@ bwaAlignment <- function(input_file,
                  samtools,'sort ', # memmory problems with sambamba sort
                  #'-n', # sort by names
                  '-@', threads,
-                 '-o', out_bam, ';',
+                 '- -o', out_bam, ';',
                  sambamba, "index",
                  "-t", threads,
                  out_bam))
@@ -94,7 +94,7 @@ bwaAlignment <- function(input_file,
                  paste0("-R \"@RG\\tID:", sm_name, "\\tPU:1\\tSM:", sm_name, "\\tPL:ILLUMINA\""),
                  ref,
                  input_file, input_file2, "|",
-                 samtools, 'sort -n - -',
+                 samtools, 'sort -n - ',
                  '-@', threads, '|',
                  samblaster, '-M |',
                  sambamba, 'view',
@@ -103,7 +103,7 @@ bwaAlignment <- function(input_file,
                  samtools,'sort ', # memmory problems with sambamba sort
                  #'-n', # sort by names
                  '-@', threads,
-                 '-o', out_bam, ';',
+                 '- -o', out_bam, ';',
                  sambamba, "index",
                  "-t", threads,
                  out_bam))
