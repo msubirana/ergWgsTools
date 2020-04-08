@@ -27,39 +27,7 @@ for(fastq in fastqs){
                 email = email)
 
 }
-###
 
-devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
-bam_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/'
-out_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/realigned'
-type_input_file <- 'bam'
-bams <- list.files(bam_path,
-                     pattern = "\\.bam$",
-                     full.names = T)
-cores <- 28
-
-for(bam in bams){
-
-  sample_name <- gsub("\\.bam", '', basename(bam))
-  name = paste0('bwa_', sample_name)
-  queue = 'imppcv3'
-  log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
-  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/bwaAlignment.R',
-                 bam,
-                 out_path)
-
-  email = 'clusterigtpmsubirana@gmail.com'
-
-  RtoSge::toSge(cores = cores,
-                name = name,
-                queue = queue,
-                log = log,
-                script = script,
-                email = email)
-
-}
-
-###
 ####
 
 bam_path <- '/media/msubirana/plab1/resorted'

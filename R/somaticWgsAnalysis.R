@@ -42,10 +42,11 @@
 #' @param strelka2 Path of strelka2 binary.
 #' @param pindel Path of Pindel binary.
 #' @param perl Path of perl executable.
-#' @param input_file Fastq file to align. If paried-end type, `input_file` have to contain mate 1s and different pairs should
+#' @param fastq Fastq file to carry the analysis. If paried-end type, `input_file` have to contain mate 1s and different pairs should
 #'  be named "_R1" or "_R2". Allowed formats: fastq.gz, fq.gz, fastq, fq or bam.
 #' @param python_radia Path to the python binary with all the RADIA \href{https://github.com/aradenbaugh/radia}{prerequisites}.
 #' @param tumor_vcf_id Id of the tumor sample in vcf. By default 'TUMOR'.
+#' @param bam Bam file to carry the analysis.
 
 #'
 #' @export
