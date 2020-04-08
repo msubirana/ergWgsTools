@@ -17,8 +17,9 @@ bamTofastqPicard <- function(bam,
                              ref,
                              out_path,
                              threads,
-                             gatk4,
-                             sambamba){
+                             gatk4 = '/imppc/labs/lplab/share/bin/gatk-4.1.3.0/gatk',
+                             sambamba = 'sambamba',
+                             samtools = 'samtools'){
 
   # if index does not exists, create it
   index <- paste0(bam, '.bai')
