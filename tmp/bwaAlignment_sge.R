@@ -32,7 +32,7 @@ for(fastq in fastqs){
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
 bam_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/'
 out_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/realigned'
-
+type_input_file <- 'bam'
 bams <- list.files(bam_path,
                      pattern = "\\.bam$",
                      full.names = T)

@@ -15,7 +15,7 @@
 #' }
 #' @export
 bwaAlignment <- function(input_file,
-                         type_input_file = 'fastq',
+                         type_input_file,
                          ref,
                          out_path,
                          threads,
