@@ -80,7 +80,7 @@ bwaAlignment <- function(input_file,
                  samtools,'sort ', # memmory problems with sambamba sort
                  #'-n', # sort by names
                  '-@', threads,
-                 '- -o', out_bam, ';',
+                 '-o', out_bam, ';',
                  sambamba, "index",
                  "-t", threads,
                  out_bam))
@@ -94,8 +94,6 @@ bwaAlignment <- function(input_file,
                  paste0("-R \"@RG\\tID:", sm_name, "\\tPU:1\\tSM:", sm_name, "\\tPL:ILLUMINA\""),
                  ref,
                  input_file, input_file2, "|",
-                 samtools, 'sort -n - ',
-                 '-@', threads, '|',
                  samblaster, '-M |',
                  sambamba, 'view',
                  '-t', threads, '-S',
@@ -103,50 +101,11 @@ bwaAlignment <- function(input_file,
                  samtools,'sort ', # memmory problems with sambamba sort
                  #'-n', # sort by names
                  '-@', threads,
-                 '- -o', out_bam, ';',
+                 '-o', out_bam, ';',
                  sambamba, "index",
                  "-t", threads,
                  out_bam))
 
-    # system(paste(bwa, 'mem -M',
-    #              '-t', threads,
-    #              paste0("-R \"@RG\\tID:", sm_name, "\\tPU:1\\tSM:", sm_name, "\\tPL:ILLUMINA\""),
-    #              ref,
-    #              input_file, input_file2, "|",
-    #              samtools, 'view',
-    #              '-@', threads,
-    #              '-Shu - |',
-    #              samtools, 'sort -n',
-    #              '-@', threads,
-    #              '- |',
-    #              samtools, 'fixmate -m',
-    #              '-@', threads,
-    #              '- |',
-    #              samtools, 'sort',
-    #              '-@', threads,
-    #              '- |',
-    #              samtools, 'markdup',
-    #              '-@', threads,
-    #              '-',  out_bam, ';',
-    #              samtools, "index",
-    #              "-@", threads,
-    #              out_bam))
-
-
-    # system(paste(bwa, 'mem -M',
-    #              '-t', threads,
-    #              paste0("-R \"@RG\\tID:", sm_name, "\\tPU:1\\tSM:", sm_name, "\\tPL:ILLUMINA\""),
-    #              ref,
-    #              input_file, input_file2, "|",
-    #              samtools, 'sort',
-    #              '-@', threads,
-    #              '-o - tmp |',
-    #              samtools, 'markdup',
-    #              '-@', threads,
-    #              '-',  out_bam, ';',
-    #              samtools, "index",
-    #              "-@", threads,
-    #              out_bam))
   }
 
   sample_name <- gsub("\\..*$", "", basename(input_file))
