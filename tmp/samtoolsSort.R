@@ -1,10 +1,11 @@
 samtools <- 'samtools'
 threads <- 4
-bam_path <- getwd()
-output_path <- '/media/msubirana/plab1/resorted'
+output_path <- '/media/msubirana/wd_my_passport/icgc_downloads/resorted'
+# bam_path <- ''
+# bams <- list.files(bam_path,
+#            pattern = '\\.bam$')
 
-bams <- list.files(bam_path,
-           pattern = '\\.bam$')
+bams <- paste0('NET-', seq(86,89), c('_BL', '_TI'), '.bam')
 
 for(bam in bams){
 

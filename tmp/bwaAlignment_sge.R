@@ -1,9 +1,9 @@
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
-fastq_path <- '/imppc/labs/lplab/share/marc/insulinomas/raw/fastq'
-out_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa'
+fastq_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/fq'
+out_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/realigned'
 
 fastqs <- list.files(fastq_path,
-                     pattern = "\\_R1.fq.gz$",
+                     pattern = "\\_R1.fq$",
                      full.names = T)
 cores <- 28
 
