@@ -19,8 +19,7 @@ bwaAlignment2 <- function(fastq,
                           threads,
                           bwa = 'bwa',
                           gatk4 = '/imppc/labs/lplab/share/bin/gatk-4.1.3.0/gatk',
-                          samtools = 'samtools',
-){
+                          samtools = 'samtools'){
 
   # define fastq type
   name_non_ext <- basename(gsub("\\..*", "", (fastq)))

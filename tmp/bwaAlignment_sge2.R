@@ -1,6 +1,6 @@
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
-fastq_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/fq/repaired'
-out_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/realigned'
+fastq_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/fq/realigned'
+out_path <- fastq_path
 
 fastqs <- list.files(fastq_path,
                      pattern = "\\_R1.fq$",
