@@ -1,3 +1,5 @@
+library(devtools)
+devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
 vcf_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/manta/raw'
 vcfs <- list.files(vcf_path,
                    pattern = 'somaticSV.vcf.gz$',

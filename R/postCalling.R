@@ -27,7 +27,7 @@ postCalling <- function(pass_vcf,
                 '>Reference genome:', ref, '\n'))
 
   # correct format vcf
-  corr_vcf <- gsub(".vcf", "_corr.vcf", pass_vcf)
+  corr_vcf <- gsub("\\.vcf", "_corr.vcf", pass_vcf)
 
   system(paste(gatk4,
                "--java-options '-Xmx8g'",
