@@ -1,11 +1,11 @@
 samtools <- 'samtools'
 threads <- 4
-output_path <- 'resorted'
-# bam_path <- ''
-# bams <- list.files(bam_path,
-#            pattern = '\\.bam$')
+output_path <- '/media/msubirana/IGTP20228/insulinomas/processed/hg38/bam/bwa/icgc_downloads/resorted'
+bam_path <- '.'
+bams <- list.files(bam_path,
+           pattern = '\\.bam$',
+           full.names = T)
 
-bams <- paste0('NET-', seq(80,85), c('_TI', '_BL'), '.bam')
 
 for(bam in bams){
 

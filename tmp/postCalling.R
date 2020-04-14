@@ -1,19 +1,22 @@
-source('/imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/variables.R')
 library(devtools)
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
-threads <- parallel::detectCores()
-
-gatk4 = '/imppc/labs/lplab/share/bin/gatk-4.1.3.0/gatk'
+out_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/manta/postCalling'
 ref <- '/imppc/labs/lplab/share/marc/refgen/hg38/hg38.fa'
-bcftools <- 'bcftools'
+vcf_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/manta/pass'
 
-args <- commandArgs(trailingOnly = TRUE)
+vcfs <- list.files(vcf_path,
+                   full.names = T,
+                   pattern = '\\.vcf$')
 
-pass_vcf <- args[1]
+for(pass_vcf in vcfs){
 
-postCalling(pass_vcf,
-            gatk4,
-            ref,
-            bcftools)
+  postCalling(pass_vcf = pass_vcf,
+              ref = ref,
+              out_path = out_path)
+
+}
+
+
+
 
 

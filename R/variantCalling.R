@@ -1058,48 +1058,6 @@ radiaCalling <- function(tumor_file,
 
 }
 
-#' bcftoolsReheader
-#'
-#' @description
-#' Parser for bcftools reheader
-#'
-#' @inheritParams variantCalling
-#' @param vcf Vcf to reheader.
-#' @param vcf_new_names Vector with the new sample names to define in the vcf header.
-#' @param reheadered_vcf Path where to save the reheared vcf.
-#' @examples
-#' \dontrun{
-#' bcftoolsReheader(bcftools = 'bcftools', vcf = 'sample.vcf', vcf_new_names = c('NORMAL', 'TUMOR'), reheadered_vcf = 'sample_rh.vcf')
-#'}
-#' @export
-
-bcftoolsReheader <- function(bcftools,
-                             vcf,
-                             vcf_new_names = c('NORMAL', 'TUMOR'),
-                             reheadered_vcf){
-
-  vcf_old_names <- system(paste(bcftools,
-                                'query -l', vcf), intern = T)
-
-  new_header_file <- file.path(dirname(vcf), paste0(sample_name, '.header'))
-
-  new_header_vcf <- paste(c(vcf_old_names[1], " ",
-                            vcf_new_names[1], '\n',
-                            vcf_old_names[2], " ",
-                            vcf_new_names[2]),
-                          collapse = "")
-
-  writeLines(new_header_vcf, new_header_file)
-
-  system(paste(bcftools,
-               'reheader',
-               '-s', new_header_file,
-               '-o',reheadered_vcf,
-               vcf))
-
-}
-
-
 #' fpfilterTool
 #'
 #' @description
@@ -1165,77 +1123,5 @@ fpfilterTool <- function(vcf,
 
 }
 
-
-#' postCalling
-#'
-#' @description
-#' Vcf sorting, normalization and reheader of the vcf generated unsing `variantCalling` for posterior annotation. Input file have to
-#' present the *_PASS.vcf format and being uncompressed.
-#'
-#' @inheritParams variantCalling
-#' @param pass_vcf Vcf to apply post-calling processing. It should be descompressed and *_PASS.vcf format.
-#' @examples
-#' \dontrun{
-#' postCalling(pass_vcf = 'raw/sample_tumor.bam',
-#'             gatk4 = 'bin/gatk-4.1.3.0/gatk',
-#'             ref = 'ref/hg38.fa',
-#'             bcftools = 'bcftools')
-#' }
-#'
-#' @export
-postCalling <- function(pass_vcf,
-                        gatk4,
-                        ref,
-                        bcftools){
-
-  message(paste(Sys.time(),"\n",
-                'Starting post-calling vcf using:\n',
-                '>Vcf file:', pass_vcf, '\n',
-                '>Reference genome:', ref, '\n'))
-
-  # correct format vcf
-  corr_vcf <- gsub("_PASS.vcf", "_corr.vcf", pass_vcf)
-
-  system(paste(gatk4,
-               "--java-options '-Xmx8g'",
-               'SelectVariants',
-               '-V', pass_vcf,
-               '-O', corr_vcf,
-               '-R', ref))
-
-  # sort vcf
-  sorted_vcf <- gsub("_corr.vcf", "_sorted.vcf", corr_vcf)
-
-  system(paste(gatk4,
-               'SortVcf',
-               '--CREATE_INDEX=true',
-               '--SEQUENCE_DICTIONARY', gsub(".fa", ".dict", ref),
-               '-I', corr_vcf,
-               '-O', sorted_vcf))
-
-  unlink(corr_vcf)
-  unlink(paste0(corr_vcf, '.idx'))
-
-
-  # normalization
-  n_vcf <- gsub("_sorted.vcf", "_n.vcf", sorted_vcf)
-  system(paste(bcftools, 'norm',
-               '-f', ref,
-               sorted_vcf,
-               '>', n_vcf))
-
-  unlink(sorted_vcf)
-  unlink(paste0(sorted_vcf, '.idx'))
-
-
-  # rehader
-  reheadered_vcf <- gsub("_n.vcf", "_postCalling.vcf", n_vcf)
-  bcftoolsReheader(bcftools = bcftools,
-                   vcf = n_vcf,
-                   reheadered_vcf = reheadered_vcf)
-
-  unlink(n_vcf)
-
-}
 
 
