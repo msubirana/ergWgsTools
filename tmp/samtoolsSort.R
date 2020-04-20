@@ -1,6 +1,6 @@
 samtools <- 'samtools'
 threads <- 4
-output_path <- '/media/msubirana/IGTP20228/insulinomas/processed/hg38/bam/bwa/icgc_downloads/resorted'
+output_path <- '/media/msubirana/plab1/resorted/'
 bam_path <- '.'
 bams <- list.files(bam_path,
            pattern = '\\.bam$',

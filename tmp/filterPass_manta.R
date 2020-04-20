@@ -7,7 +7,7 @@ vcfs <- list.files(vcf_path,
                    full.names = T)
 
 out_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/manta/pass'
-
+dir.create(out_path, showWarnings = F)
 for(vcf in vcfs){
 
   pass_vcf <- dirname(vcf)

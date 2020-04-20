@@ -5,7 +5,7 @@ out_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/fq'
 bams <- list.files(bam_path,
                    pattern = "\\.bam$",
                    full.names = T)
-cores <- 28
+cores <- 1
 
 for(bam in bams){
 
@@ -13,7 +13,7 @@ for(bam in bams){
   name = paste0('bamToFq_', sample_name)
   queue = 'imppcv3'
   log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
-  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/bamTofastqPicard.R',
+  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/reheaderBam.R',
                  bam,
                  out_path)
 

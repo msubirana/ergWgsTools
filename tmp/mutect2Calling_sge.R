@@ -1,11 +1,11 @@
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
-bam_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/realigned'
+bam_path <- getwd()
 
 bams <- list.files(bam_path,
                    pattern = "_BL.bam$",
                    full.names = T)
 
-output_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/realigned/calling'
+output_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa'
 
 for(bam in bams){
   normal_file <- bam

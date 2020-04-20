@@ -48,7 +48,7 @@ for(i in seq(nrow(df_rename))){
 ####
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
 
-bams <- list.files('/media/msubirana/IGTP20228/insulinomas/processed/hg38/bam/bwa/forRh',
+bams <- list.files('/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa',
                    pattern = '\\.bam$',
                    full.names = T)
 
