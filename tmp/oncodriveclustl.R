@@ -6,13 +6,11 @@ args <- commandArgs(trailingOnly = TRUE)
 input <- args[1]
 regions <- args[2]
 output_dir <- args[3]
-genome <- args[4]
 
-oncodriveclustl(input,
-                regions,
-                output_dir,
-                genome = 'hg38',
-                cores)
+oncodriveclustl(input=input,
+                regions=regions,
+                output_dir=output_dir,
+                cores=cores)
 
 
 
