@@ -1,7 +1,6 @@
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
 threads <- parallel::detectCores()
 cores <- threads/2
-cores <- cores - 2
 args <- commandArgs(trailingOnly = TRUE)
 input <- args[1]
 regions <- args[2]

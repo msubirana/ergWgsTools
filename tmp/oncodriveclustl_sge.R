@@ -5,8 +5,8 @@ regions <- file.path(getwd(),'regions.tsv')
 output_dir <- file.path(getwd(), 'strelka2')
 dir.create(output_dir,
            showWarnings = FALSE)
-cores = 8
-name = 'CLUST_all'
+cores = 10
+name = 'CLUST_ins'
 queue = 'imppcv3'
 log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
 
