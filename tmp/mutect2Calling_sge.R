@@ -5,7 +5,7 @@ bams <- list.files(bam_path,
                    pattern = "_BL.bam$",
                    full.names = T)
 
-output_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa'
+output_path <- getwd()
 
 for(bam in bams){
   normal_file <- bam
