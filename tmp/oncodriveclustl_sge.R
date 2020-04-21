@@ -5,8 +5,8 @@ regions <- file.path(getwd(),'regions.tsv')
 output_dir <- file.path(getwd(), 'strelka2')
 dir.create(output_dir,
            showWarnings = FALSE)
-cores = 16
-name = 'odCLUST_insu'
+cores = 8
+name = 'CLUST_all'
 queue = 'imppcv3'
 log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
 
@@ -17,7 +17,7 @@ script = paste0('export LC_ALL=C.UTF-8\n',
                paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/oncodriveclustl.R',
                input,
                regions,
-               output_dire))
+               output_dir))
 
 email = 'clusterigtpmsubirana@gmail.com'
 RtoSge::toSge(cores = cores,
