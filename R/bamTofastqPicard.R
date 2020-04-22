@@ -69,8 +69,8 @@ bamTofastqPicard <- function(bam,
 
   } else if (type == 'paired'){
 
-    out_fq1 <- file.path(out_path, paste0(name_non_ext, "_R1.fq"))
-    out_fq2 <- file.path(out_path, paste0(name_non_ext, "_R2.fq"))
+    out_fq1 <- file.path(out_path, paste0(name_non_ext, "_R1.fq.gz"))
+    out_fq2 <- file.path(out_path, paste0(name_non_ext, "_R2.fq.gz"))
 
     system(paste(gatk4,
                  '--java-options', paste0('-XX:ParallelGCThreads=',threads),
