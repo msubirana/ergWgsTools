@@ -10,7 +10,7 @@ cores <- 28
 for(fastq_file in fastq_files){
 
   sample_name <- gsub("_.*", '', basename(fastq_file))
-  name = paste0('bwa_', sample_name)
+  name = paste0('hisat2_', sample_name)
   queue = 'imppcv3'
   log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
   script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/hisat2R.R',
