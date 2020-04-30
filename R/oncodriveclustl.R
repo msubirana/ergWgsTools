@@ -22,7 +22,7 @@ oncodriveclustl <- function(input,
                    output_dir,
                    genome = 'hg38',
                    cores = 2,
-                   kmer = '5',
+                   kmer = 5,
                    sigcalc = 'region_normalized'){
 
   message(paste(Sys.time(),"\n",
