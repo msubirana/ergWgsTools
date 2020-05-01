@@ -32,7 +32,7 @@ oncodrivefml <- function(input,
   # run oncodrivefml
   system(paste('oncodrivefml',
                '-i', input,
-               '-r', elements,
+               '-e', elements,
                '-o', output_dir,
                '-s', sequencing,
                '-c',configuration))
