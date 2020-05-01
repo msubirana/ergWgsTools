@@ -6,7 +6,7 @@ output_dir <- args[3]
 configuration <- args[4]
 
 oncodrivefml(input=input,
-             elements=regions,
+             elements=elements,
                 output_dir=output_dir,
              configuration=configuration)
 

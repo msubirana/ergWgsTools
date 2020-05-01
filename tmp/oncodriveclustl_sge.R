@@ -6,7 +6,7 @@ output_dir <- file.path(getwd(), 'strelka2')
 dir.create(output_dir,
            showWarnings = FALSE)
 cores = 10
-name = 'CLUST_ins'
+name = 'CLUST_11p15'
 queue = 'imppcv3'
 log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
 

@@ -7,7 +7,7 @@ dir.create(output_dir,
            showWarnings = FALSE)
 configuration <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/oncodriveFML/oncodrivefml_v2.conf'
 cores = 10
-name = 'CLUST_11p15'
+name = paste0('FML_', basename(getwd()))
 queue = 'imppcv3'
 log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
 
