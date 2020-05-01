@@ -12,7 +12,7 @@ log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
 
 script = paste0('export LC_ALL=C.UTF-8\n',
                'export LANG=C.UTF-8\n',
-               'export BGDATA_LOCAL=/imppc/labs/lplab/share/marc/refgen/oncodriveCLUSTL',
+               'export BGDATA_LOCAL=/imppc/labs/lplab/share/marc/refgen/oncodriveCLUSTL\n',
                'source /software/debian-8/general/virtenvs/oncodriveCLUSTL-v1.1.1-py3/bin/activate\n',
                paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/oncodriveclustl.R',
                input,
