@@ -1,2 +1,0 @@
-viewpoint	chr	start	end	width	leftSize	rightSize	leftValid	rightValid	primerStart	primerEnd	primerSide
-testdata	chr2L	6027	6878	852	251	597	TRUE	TRUE	6027	6050	left
