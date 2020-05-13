@@ -54,7 +54,7 @@ oncodriveclustl <- function(input,
                '-sigcalc', sigcalc,
                '-sw', sw,
                '-simw', simw,
-               'cw', cw))
+               '-cw', cw))
 
   message(paste(Sys.time(),"\n",
                 'Finished oncodriveclustl', input))
