@@ -37,10 +37,10 @@ oncodriveclustl <- function(input,
                 regions, 'as a regions file\n',
                 output_dir, 'as a output directory\n',
                 genome, 'as genome\n',
-                cores, 'as cores used',
-                sw, 'as smoothing window',
-                cw, 'as cluster window',
-                simw, 'as simulation window'))
+                cores, 'as cores used\n',
+                sw, 'as smoothing window\n',
+                cw, 'as cluster window\n',
+                simw, 'as simulation window\n'))
 
   # run oncodriveclustl
   system(paste('oncodriveclustl',
@@ -57,10 +57,6 @@ oncodriveclustl <- function(input,
                'cw', cw))
 
   message(paste(Sys.time(),"\n",
-                'Finished oncodriveclustl using:\n',
-                input, 'as a input file\n',
-                regions, 'as a regions file\n',
-                output_dir, 'as a output directory\n',
-                genome, 'as genome\n'))
+                'Finished oncodriveclustl', input))
 }
 

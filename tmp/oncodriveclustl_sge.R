@@ -19,9 +19,9 @@ df_param <- do.call(expand.grid, param)
 for (row in 1:nrow(df_param)) {
   values <- df_param[row,]
   name = paste0('ft_', paste0(values, collapse = "_"))
-  simw <- as.numeric(values[1])
-  sw <- as.numeric(values[2])
-  cw <- as.numeric(values[3])
+  simw <- as.character(values[1])
+  sw <- as.character(values[2])
+  cw <- as.character(values[3])
   output_dir <- file.path(main_dir, name)
   dir.create(output_dir,
              showWarnings = FALSE)

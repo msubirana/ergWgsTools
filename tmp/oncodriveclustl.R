@@ -9,13 +9,17 @@ sm <- args[4]
 simw <- args[5]
 cw <- args[6]
 
-oncodriveclustl(input=input,
-                regions=regions,
-                output_dir=output_dir,
-                cores=cores,
-                sw=sw,
-                simw=simw,
-                cw=cw)
+message(sm)
+message(simw)
+message(cw)
+
+# oncodriveclustl(input=input,
+#                 regions=regions,
+#                 output_dir=output_dir,
+#                 cores=cores,
+#                 sw=sw,
+#                 simw=simw,
+#                 cw=cw)
 
 
 
