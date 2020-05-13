@@ -10,6 +10,9 @@
 #' @param kmer K-mer nucleotide context. Default 5.
 #' @param sigcalc Signature calculation: mutation frequencies (frequencies) or k-mer mutation counts
 #' normalized by k-mer region counts (region_normalized). Default region_normalized
+#' @param sw Smoothing window. Default is 11
+#' @param cw Cluster window. Default is 11
+#' @param simw Simulation window. Default is 31
 #' @examples
 #' \dontrun{
 #' oncodriveclustl(input = 'all_ins.tvs', regions = 'regions.regions', output_dir = 'rst/', genome = 'hg38', cores = 2)
@@ -23,7 +26,10 @@ oncodriveclustl <- function(input,
                    genome = 'hg38',
                    cores = 2,
                    kmer = 5,
-                   sigcalc = 'region_normalized'){
+                   sigcalc = 'region_normalized',
+                   sw = 11,
+                   simw = 31,
+                   cw = 11){
 
   message(paste(Sys.time(),"\n",
                 'Starting oncodriveclustl using:\n',
@@ -31,7 +37,10 @@ oncodriveclustl <- function(input,
                 regions, 'as a regions file\n',
                 output_dir, 'as a output directory\n',
                 genome, 'as genome\n',
-                cores, 'as cores used'))
+                cores, 'as cores used',
+                sw, 'as smoothing window',
+                cw, 'as cluster window',
+                simw, 'as simulation window'))
 
   # run oncodriveclustl
   system(paste('oncodriveclustl',
@@ -42,7 +51,10 @@ oncodriveclustl <- function(input,
                '-c', cores,
                '--qqplot',
                '-kmer', kmer,
-               '-sigcalc', sigcalc))
+               '-sigcalc', sigcalc,
+               '-sw', sw,
+               '-simw', simw,
+               'cw', cw))
 
   message(paste(Sys.time(),"\n",
                 'Finished oncodriveclustl using:\n',

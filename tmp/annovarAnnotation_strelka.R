@@ -1,8 +1,8 @@
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
-vcf_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/strelka2'
+vcf_path <- getwd()
 
 vcfs <- list.files(vcf_path,
-                   pattern = "*\\_postCalling\\.vcf",
+                   pattern = "*.vcf",
                    full.names = T,
                    recursive = T)
 
