@@ -7,7 +7,7 @@ main_dir <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/o
 dir.create(main_dir,
            showWarnings = FALSE)
 
-cores = 4
+cores = 2
 queue = 'imppcv3'
 log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
 email = 'clusterigtpmsubirana@gmail.com'
@@ -36,7 +36,8 @@ for (row in 1:nrow(df_param)) {
                         output_dir,
                         sw,
                         simw,
-                        cw))
+                        cw,
+                        cores))
 
   RtoSge::toSge(cores = cores,
                 name = name,
