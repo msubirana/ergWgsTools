@@ -2,7 +2,7 @@ devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
 
 input <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/vcf/strelka2/variants_sub.tsv'
 elements <- file.path(getwd(),'elements.tsv')
-output_dir <- file.path(getwd(), 'strelka2')
+output_dir <- file.path(getwd())
 dir.create(output_dir,
            showWarnings = FALSE)
 configuration <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/oncodriveFML/oncodrivefml_v2.conf'
