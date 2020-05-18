@@ -1,6 +1,6 @@
 devtools::load_all('/imppc/labs/lplab/share/marc/repos/ergWgsTools')
 
-out_path <- '/home/labs/lplab/msubirana/media/drive1/insulinomas/processed/hg38/coverage'
+output_path <- '/home/labs/lplab/msubirana/media/drive1/insulinomas/processed/hg38/coverage'
 
 bams <- c('/home/labs/lplab/msubirana/media/drive1/insulinomas/processed/hg38/bam/bwa/NET-21_BL.bam',
           '/home/labs/lplab/msubirana/media/drive1/insulinomas/processed/hg38/bam/bwa/NET-21_TI.bam',
@@ -13,9 +13,9 @@ threads <- 4
 
 for(bam in bams){
 
-  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/mosdepth.R',
+  system(paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/mosdepth.R',
                  bam,
                  output_path,
-                 threads)
+                 threads))
 
 }
