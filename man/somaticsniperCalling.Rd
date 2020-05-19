@@ -4,8 +4,17 @@
 \alias{somaticsniperCalling}
 \title{somaticsniperCalling}
 \usage{
-somaticsniperCalling(tumor_file, normal_file, sample_name, ref, out_path,
-  somatic_sniper, fpfilter, perl, bcftools)
+somaticsniperCalling(
+  tumor_file,
+  normal_file,
+  sample_name,
+  ref,
+  out_path,
+  somatic_sniper,
+  fpfilter,
+  perl,
+  bcftools
+)
 }
 \arguments{
 \item{tumor_file}{Tumor bam to file to perform the variant calling.}

@@ -4,8 +4,16 @@
 \alias{museCalling}
 \title{museCalling}
 \usage{
-museCalling(tumor_file, normal_file, sample_name, ref, out_path, muse,
-  af_only_gnomad, bcftools)
+museCalling(
+  tumor_file,
+  normal_file,
+  sample_name,
+  ref,
+  out_path,
+  muse,
+  af_only_gnomad,
+  bcftools
+)
 }
 \arguments{
 \item{tumor_file}{Tumor bam to file to perform the variant calling.}

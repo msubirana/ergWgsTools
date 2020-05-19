@@ -4,8 +4,17 @@
 \alias{fpfilterTool}
 \title{fpfilterTool}
 \usage{
-fpfilterTool(vcf, tumor_file, sample_name, ref, fpfilter, perl, out_path,
-  bam_readcount, tumor_vcf_id = "TUMOR")
+fpfilterTool(
+  vcf,
+  tumor_file,
+  sample_name,
+  ref,
+  fpfilter,
+  perl,
+  out_path,
+  bam_readcount,
+  tumor_vcf_id = "TUMOR"
+)
 }
 \arguments{
 \item{tumor_file}{Tumor bam to file to perform the variant calling.}

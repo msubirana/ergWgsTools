@@ -7,6 +7,8 @@
 renameSampleBam(bam, samtools = "samtools", new_sample_name, out_path)
 }
 \arguments{
+\item{bam}{Bam file to carry the analysis.}
+
 \item{samtools}{Path of samtools binary.}
 
 \item{new_sample_name}{New sample name for the BAM file}

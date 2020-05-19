@@ -43,7 +43,7 @@ facets <- function(normal,
                tumor))
 
   # facets analysis
-
+  library(facets)
   #Maintain the randomization
   set.seed(1234)
 

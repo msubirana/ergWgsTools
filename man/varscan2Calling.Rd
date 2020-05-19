@@ -4,8 +4,18 @@
 \alias{varscan2Calling}
 \title{varscan2Calling}
 \usage{
-varscan2Calling(tumor_file, normal_file, sample_name, ref, out_path,
-  varscan2, samtools, fpfilter, perl, bcftools)
+varscan2Calling(
+  tumor_file,
+  normal_file,
+  sample_name,
+  ref,
+  out_path,
+  varscan2,
+  samtools,
+  fpfilter,
+  perl,
+  bcftools
+)
 }
 \arguments{
 \item{tumor_file}{Tumor bam to file to perform the variant calling.}

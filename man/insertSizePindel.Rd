@@ -4,13 +4,18 @@
 \alias{insertSizePindel}
 \title{insertSizePindel}
 \usage{
-insertSizePindel(out_path, sambamba, samtools, bam_file,
-  size_subsample = 1e+06)
+insertSizePindel(
+  out_path,
+  sambamba,
+  samtools,
+  bam_file,
+  size_subsample = 1e+06
+)
 }
 \arguments{
 \item{out_path}{Path where the output of the analysis will be saved.}
 
-\item{sambamba}{Path of sambamba binary.}
+\item{sambamba}{Path of sambamba binary}
 
 \item{samtools}{Path of samtools binary.}
 

@@ -6,7 +6,7 @@ bams <- c('/home/labs/lplab/msubirana/media/drive1/insulinomas/processed/hg38/ba
           '/home/labs/lplab/msubirana/media/drive1/insulinomas/processed/hg38/bam/bwa/NET-25_BL.bam',
           '/home/labs/lplab/msubirana/media/drive1/insulinomas/processed/hg38/bam/bwa/NET-29_BL.bam')
 
-threads <- 4
+threads <- 2
 
 for(bam in bams){
 

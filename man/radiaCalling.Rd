@@ -4,8 +4,18 @@
 \alias{radiaCalling}
 \title{radia}
 \usage{
-radiaCalling(tumor_file, normal_file, sample_name, ref, out_path,
-  radia_path, python_radia, samtools, threads, bcftools)
+radiaCalling(
+  tumor_file,
+  normal_file,
+  sample_name,
+  ref,
+  out_path,
+  radia_path,
+  python_radia,
+  samtools,
+  threads,
+  bcftools
+)
 }
 \arguments{
 \item{tumor_file}{Tumor bam to file to perform the variant calling.}

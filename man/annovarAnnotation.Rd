@@ -4,10 +4,14 @@
 \alias{annovarAnnotation}
 \title{annovarAnnotation}
 \usage{
-annovarAnnotation(vcf, out_vcf, threads,
+annovarAnnotation(
+  vcf,
+  out_vcf,
+  threads,
   annovar = "/imppc/labs/lplab/share/bin/annovar",
   humandb = "/imppc/labs/lplab/share/bin/annovar/humandb",
-  perl = "perl")
+  perl = "perl"
+)
 }
 \arguments{
 \item{vcf}{Vcf file to annotate}

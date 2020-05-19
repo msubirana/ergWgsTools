@@ -4,8 +4,14 @@
 \alias{wgsSomaticPreprocessing}
 \title{wgsSomaticPreprocessing}
 \usage{
-wgsSomaticPreprocessing(inputFile, ref, outPathBam, threads,
-  removeOpt = "no", rstPath)
+wgsSomaticPreprocessing(
+  inputFile,
+  ref,
+  outPathBam,
+  threads,
+  removeOpt = "no",
+  rstPath
+)
 }
 \arguments{
 \item{inputFile}{Fastq or bam file to analyse}
