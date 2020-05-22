@@ -13,6 +13,7 @@
 #' @param sw Smoothing window. Default is 11
 #' @param cw Cluster window. Default is 11
 #' @param simw Simulation window. Default is 31
+#' @param emut  Cutoff of element mutations. Default is 2
 #' @examples
 #' \dontrun{
 #' oncodriveclustl(input = 'all_ins.tvs', regions = 'regions.regions', output_dir = 'rst/', genome = 'hg38', cores = 2)
@@ -29,7 +30,8 @@ oncodriveclustl <- function(input,
                    sigcalc = 'region_normalized',
                    sw = 11,
                    simw = 31,
-                   cw = 11){
+                   cw = 11,
+                   emut = 2){
 
   message(paste(Sys.time(),"\n",
                 'Starting oncodriveclustl using:\n',
@@ -40,7 +42,8 @@ oncodriveclustl <- function(input,
                 cores, 'as cores used\n',
                 sw, 'as smoothing window\n',
                 cw, 'as cluster window\n',
-                simw, 'as simulation window\n'))
+                simw, 'as simulation window\n',
+                emut, 'as a element mutation'))
 
   # run oncodriveclustl
   system(paste('oncodriveclustl',
@@ -54,7 +57,8 @@ oncodriveclustl <- function(input,
                '-sigcalc', sigcalc,
                '-sw', sw,
                '-simw', simw,
-               '-cw', cw))
+               '-cw', cw,
+               '-emut', emut))
 
   message(paste(Sys.time(),"\n",
                 'Finished oncodriveclustl', input))

@@ -7,6 +7,7 @@ sw <- args[4]
 simw <- args[5]
 cw <- args[6]
 cores <- args[7]
+emut <- args[8]
 
 oncodriveclustl(input=input,
                 regions=regions,
@@ -14,7 +15,8 @@ oncodriveclustl(input=input,
                 cores=cores,
                 sw=sw,
                 simw=simw,
-                cw=cw)
+                cw=cw,
+                emut=emut)
 
 
 
