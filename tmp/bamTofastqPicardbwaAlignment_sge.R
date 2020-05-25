@@ -8,7 +8,7 @@ bams <- list.files(bam_path,
 
 out_path <- file.path(getwd(), 'realigned')
 
-cores <- 28
+cores <- 8
 
 for(bam in bams){
 
