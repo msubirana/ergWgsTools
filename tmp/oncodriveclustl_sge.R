@@ -9,20 +9,19 @@ simw = 21
 sw = 31
 cw = 11
 simw = 21
+regions <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/oncodriveCLUSTL/simw21_sw31_cw11/regions/group_7_8.tsv'
+out_dir <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/oncodriveCLUSTL/simw21_sw31_cw11/group_7_8'
 
-regions_path <- '/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/oncodrive/oncodriveCLUSTL/simw21_sw31_cw11/regions'
-regions_l <- list.files(regions_path,
-                        pattern = ".tsv",
-                        full.names = TRUE)
+emuts <- c(3,4,5,6)
 
-for (regions in regions_l) {
 
-  output_dir <- file.path(dirname(regions_path), gsub('.tsv', '', basename(regions)))
+for (emut in emuts) {
 
+  output_dir <- file.path(out_dir, paste0('emut_', emut))
   dir.create(output_dir,
              showWarnings = FALSE)
 
-  name = paste0('CLUSLT', gsub('.tsv', '', basename(regions)))
+  name = paste0('CLUSLT', emut)
 
   script = paste0('export LC_ALL=C.UTF-8\n',
                   'export LANG=C.UTF-8\n',
@@ -35,7 +34,8 @@ for (regions in regions_l) {
                         sw,
                         simw,
                         cw,
-                        cores))
+                        cores,
+                        emut))
 
   RtoSge::toSge(cores = cores,
                 name = name,
