@@ -43,7 +43,7 @@ strelka_indels <- paste0('/imppc/labs/lplab/share/marc/insulinomas/processed/hg3
 strelka_merged <- file.path(out_dir, 'strelka2', paste0(sample_name, 'merged.vcf.gz'))
 strelka_merged_annotated <- file.path(out_dir, 'strelka2', paste0(sample_name, 'merged_annotated.vcf.gz'))
 
-purple_full(control_mame=control_mame,
+purple_full(control_name=control_name,
             control=control,
             tumor_name=tumor_name,
             tumor=tumor,

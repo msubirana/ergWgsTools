@@ -5,6 +5,7 @@ out_path <- getwd()
 bams <- list.files(bam_path,
                    pattern = "\\_BL.bam$",
                    full.names = T)
+
 cores <- 24
 
 for(bam in bams){
