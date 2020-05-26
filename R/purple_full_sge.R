@@ -13,7 +13,7 @@ for(bam in bams){
   name = paste0('purple_', sample_name)
   queue = 'imppcv3'
   log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
-  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/fq_bam_mutect_manta_strelka.R',
+  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/purple_full.R',
                  bam,
                  cores,
                  out_path)
