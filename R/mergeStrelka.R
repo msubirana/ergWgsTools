@@ -17,10 +17,10 @@ mergeStrelka <- function(GenomeAnalysisTK='/imppc/labs/lplab/share/bin/GenomeAna
                '-o', strelka_merged))
 
   ### Replace NORMAL and TUMOR with actual sample names
-  sysrem(paste('sed -i',
+  system(paste('sed -i',
                '\'s/NORMAL/', control_name, '/g\'', strelka_merged))
 
-  sysrem(paste('sed -i',
+  system(paste('sed -i',
                '\'s/TUMOR/', tumor_name, '/g\'', strelka_merged))
 
   ### Add Allelic Depth field
