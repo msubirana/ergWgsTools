@@ -7,9 +7,8 @@ cobalt <- function(cobalt='/imppc/labs/lplab/share/bin/cobalt/cobalt-1.8.jar',
                    threads,
                    gc_profile='/imppc/labs/lplab/share/marc/refgen/purple/GC_profile.hg38.1000bp.cnp.gz'){
 
-  system(paste('java -cp -Xmx8G',
+  system(paste('java -Xmx8G -jar',
                cobalt,
-               'com.hartwig.hmftools.cobalt.CountBamLinesApplication',
                '-reference', control_name,
                '-reference_bam', control,
                '-tumor', tumor_name,

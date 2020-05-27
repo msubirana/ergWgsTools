@@ -7,9 +7,8 @@ amber <- function(amber='/imppc/labs/lplab/share/bin/amber/amber-3.3.jar',
                    threads,
                   germline_het_pon='/imppc/labs/lplab/share/marc/refgen/purple/GermlineHetPon.hg38.vcf.gz'){
 
-  system(paste('java -cp -Xmx32G',
+  system(paste('java -Xmx32G -jar',
                amber,
-               'com.hartwig.hmftools.amber.AmberApplication',
                '-reference', control_name,
                '-reference_bam', control,
                '-tumor', tumor_name,

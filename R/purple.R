@@ -11,9 +11,8 @@ purple <- function(purple='/imppc/labs/lplab/share/bin/purple/purple-2.43.jar',
                   somatic_vcf,
                   circos='/soft/bin/circos'){
 
-  system(paste('java',
+  system(paste('java -jar',
                purple,
-               'com.hartwig.hmftools.amber.AmberApplication',
                '-reference', control_name,
                '-tumor', tumor_name,
                '-output_dir', output_dir_purple,
