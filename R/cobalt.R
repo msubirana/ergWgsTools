@@ -14,7 +14,7 @@ cobalt <- function(cobalt='/imppc/labs/lplab/share/bin/cobalt/cobalt-1.8.jar',
                '-reference_bam', control,
                '-tumor', tumor_name,
                '-tumor_bam', tumor,
-               '-output_dir', output_dir_cobalt,
+               '-output_dir_cobalt', output_dir_cobalt,
                '-threads', threads,
                '-gc_profile', gc_profile))
 }

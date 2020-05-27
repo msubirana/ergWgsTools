@@ -1,4 +1,4 @@
-amber <- function(amber='/imppc/labs/lplab/share/bin/cobalt/cobalt-1.8.jar',
+amber <- function(amber='/imppc/labs/lplab/share/bin/amber/amber-3.3.jar',
                    control_name,
                    control,
                    tumor_name,
@@ -14,7 +14,7 @@ amber <- function(amber='/imppc/labs/lplab/share/bin/cobalt/cobalt-1.8.jar',
                '-reference_bam', control,
                '-tumor', tumor_name,
                '-tumor_bam', tumor,
-               '-output_dir', output_dir,
+               '-output_dir_amber', output_dir_amber,
                '-threads', threads,
                '-loci', germline_het_pon))
 }
