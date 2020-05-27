@@ -13,7 +13,7 @@ amber <- function(amber='/imppc/labs/lplab/share/bin/amber/amber-3.3.jar',
                '-reference_bam', control,
                '-tumor', tumor_name,
                '-tumor_bam', tumor,
-               '-output_dir_amber', output_dir_amber,
+               '-output_dir', output_dir_amber,
                '-threads', threads,
                '-loci', germline_het_pon))
 }
