@@ -5,7 +5,7 @@ cobalt <- function(cobalt='/imppc/labs/lplab/share/bin/cobalt/cobalt-1.8.jar',
                    tumor,
                    output_dir_cobalt,
                    threads,
-                   gc_profile='/imppc/labs/lplab/share/marc/refgen/purple/GC_profile.hg38.1000bp.cnp.gz'){
+                   gc_profile='/imppc/labs/lplab/share/marc/refgen/purple/GC_profile.hg38.1000bp.cnp'){
 
   system(paste('java -Xmx8G -jar',
                cobalt,
