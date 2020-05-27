@@ -1,5 +1,5 @@
 purple <- function(purple='/imppc/labs/lplab/share/bin/purple/purple-2.43.jar',
-                  control_mame,
+                  control_name,
                   control,
                   tumor_name,
                   tumor,
@@ -8,12 +8,13 @@ purple <- function(purple='/imppc/labs/lplab/share/bin/purple/purple-2.43.jar',
                   output_dir_amber,
                   threads,
                   germline_het_pon='/imppc/labs/lplab/share/marc/refgen/purple/GermlineHetPon.hg38.vcf.gz',
-                  somatic_vcf){
+                  somatic_vcf,
+                  circos='/soft/bin/circos'){
 
   system(paste('java',
                purple,
                'com.hartwig.hmftools.amber.AmberApplication',
-               '-reference', control_mame,
+               '-reference', control_name,
                '-tumor', tumor_name,
                '-output_dir', output_dir_purple,
                '-amber', output_dir_amber,
@@ -22,6 +23,7 @@ purple <- function(purple='/imppc/labs/lplab/share/bin/purple/purple-2.43.jar',
                '-loci', germline_het_pon,
                '-gc_profile', gc_profile,
                '-ref_genome', refgen,
-               '-somatic_vcf', somatic_vcf))
+               '-somatic_vcf', somatic_vcf,
+               '-circos', circos))
 }
 
