@@ -40,6 +40,9 @@ strelka_snvs <- paste0('/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/
 strelka_indels <- paste0('/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/raw/',
                          sample_name, '_out_strelka2/results/variants/somatic.indels.vcf.gz')
 
+
+dir.create(file.path(out_dir, 'strelka2', paste0(sample_name)))
+
 strelka_merged <- file.path(out_dir, 'strelka2', paste0(sample_name, '_merged.vcf.gz'))
 strelka_merged_annotated <- file.path(out_dir, 'strelka2', paste0(sample_name, '_merged_annotated.vcf.gz'))
 

@@ -12,19 +12,19 @@ purple_full <- function(control_name,
                         strelka_merged_annotated,
                         output_dir_purple){
 
-  cobalt(control_name=control_name,
-         control=control,
-         tumor_name=tumor_name,
-         tumor=tumor,
-         output_dir_cobalt=output_dir_cobalt,
-         threads=threads)
-
-  amber(control_name=control_name,
-        control=control,
-        tumor_name=tumor_name,
-        tumor=tumor,
-        output_dir_amber=output_dir_amber,
-        threads=threads)
+  # cobalt(control_name=control_name,
+  #        control=control,
+  #        tumor_name=tumor_name,
+  #        tumor=tumor,
+  #        output_dir_cobalt=output_dir_cobalt,
+  #        threads=threads)
+  #
+  # amber(control_name=control_name,
+  #       control=control,
+  #       tumor_name=tumor_name,
+  #       tumor=tumor,
+  #       output_dir_amber=output_dir_amber,
+  #       threads=threads)
 
 
   mergeStrelka(refgen=refgen,
