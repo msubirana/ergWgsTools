@@ -27,13 +27,14 @@ purple_full <- function(control_name,
   #       threads=threads)
 
 
-  # mergeStrelka(refgen=refgen,
-  #              strelka_snvs=strelka_snvs,
-  #              strelka_indels=strelka_indels,
-  #              control_name=control_name,
-  #              strelka_merged=strelka_merged,
-  #              strelka_merged_annotated=strelka_merged_annotated,
-  #              tumor_name=tumor_name)
+  mergeStrelka(refgen=refgen,
+               strelka_snvs=strelka_snvs,
+               strelka_indels=strelka_indels,
+               control_name=control_name,
+               strelka_merged=strelka_merged,
+               strelka_merged_annotated=strelka_merged_annotated,
+               tumor_name=tumor_name,
+               strelka_merged_annotated_reheader=strelka_merged_annotated_reheader)
 
   purple(control_name=control_name,
          control=control,
