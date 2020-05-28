@@ -6,7 +6,8 @@ mergeStrelka <- function(GenomeAnalysisTK='/imppc/labs/lplab/share/bin/GenomeAna
                          strelka_merged,
                          strelka_merged_annotated,
                          strelka_merged_annotated_reheader,
-                         tumor_name){
+                         tumor_name,
+                         purple='/imppc/labs/lplab/share/bin/purple/purple-2.43.jar'){
 
   ### Merge strelka snp and indel output
   system(paste('java -jar', GenomeAnalysisTK,
