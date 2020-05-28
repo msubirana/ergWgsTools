@@ -10,6 +10,7 @@ purple_full <- function(control_name,
                         strelka_indels,
                         strelka_merged,
                         strelka_merged_annotated,
+                        strelka_merged_annotated_reheader,
                         output_dir_purple){
 
   # cobalt(control_name=control_name,
