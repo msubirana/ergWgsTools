@@ -9,6 +9,7 @@ purple <- function(purple='/imppc/labs/lplab/share/bin/purple/purple-2.43.jar',
                   threads,
                   germline_het_pon='/imppc/labs/lplab/share/marc/refgen/purple/GermlineHetPon.hg38.vcf.gz',
                   somatic_vcf,
+                  gc_profile='/imppc/labs/lplab/share/marc/refgen/purple/GC_profile.hg38.1000bp.cnp',
                   circos='/soft/bin/circos'){
 
   system(paste('java -jar',
