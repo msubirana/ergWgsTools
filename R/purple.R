@@ -9,7 +9,7 @@ purple <- function(purple='/imppc/labs/lplab/share/bin/purple/purple-2.43.jar',
                   threads,
                   somatic_vcf,
                   gc_profile='/imppc/labs/lplab/share/marc/refgen/purple/GC_profile.hg38.1000bp.cnp',
-                  circos='/soft/bin/circos'){
+                  circos='/software/debian-8/bio/circos-0.69-9/bin/circos'){
 
   system(paste('java -jar',
                purple,
