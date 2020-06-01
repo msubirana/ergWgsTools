@@ -10,9 +10,9 @@ mutect2_gatk3_8 <- function(GenomeAnalysisTK='/software/debian-8/bio/gatk-3.8/Ge
   threads=as.numeric(cores)*2
 
   system(paste('java',
-               '-nt', threads,
                '-jar',
                GenomeAnalysisTK,
+               '-nt', threads,
                '-T MuTect2',
                '-R', refgen,
                '-I:tumor', tumor,
