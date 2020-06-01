@@ -9,7 +9,7 @@ mutect2_gatk3_8 <- function(GenomeAnalysisTK='/software/debian-8/bio/gatk-3.8/Ge
 
   threads=as.numeric(cores)*2
 
-  paste('java',
+  system(paste('java',
                '-jar',
                GenomeAnalysisTK,
                '-nt', threads,
@@ -22,6 +22,6 @@ mutect2_gatk3_8 <- function(GenomeAnalysisTK='/software/debian-8/bio/gatk-3.8/Ge
                '--contamination_fraction_to_filter 0.02',
                '-o', output,
                '--output_mode EMIT_VARIANTS_ONLY',
-               '--disable_auto_index_creation_and_locking_when_reading_rods')
+               '--disable_auto_index_creation_and_locking_when_reading_rods'))
 }
 
