@@ -7,7 +7,7 @@ mutect2_gatk3_8 <- function(GenomeAnalysisTK='/software/debian-8/bio/gatk-3.8/Ge
                             output,
                             cores){
 
-  threads=cores*2
+  threads=as.numeric(cores)*2
 
   system(paste('java -jar',
                '-nt', threads,
