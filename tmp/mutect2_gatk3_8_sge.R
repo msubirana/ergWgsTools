@@ -16,12 +16,11 @@ for(bam in bams){
   name = paste0(sample_name, '_mutect2')
   queue = 'imppcv3'
   log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
-  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/mutect2_gatk3_8.R
-                 ',
+  script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/mutect2_gatk3_8.R',
                  tumor,
                  normal,
-                 output,
-                 cores)
+                 cores,
+                 output)
 
   email = 'clusterigtpmsubirana@gmail.com'
 

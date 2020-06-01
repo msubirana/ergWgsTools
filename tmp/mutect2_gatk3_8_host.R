@@ -17,7 +17,7 @@ for(bam in bams){
   system(paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/mutect2_gatk3_8.R',
                  tumor,
                  normal,
-                 output,
-                 cores))
+                 cores,
+                 output))
 }
 
