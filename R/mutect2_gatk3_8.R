@@ -4,15 +4,11 @@ mutect2_gatk3_8 <- function(GenomeAnalysisTK='/software/debian-8/bio/gatk-3.8/Ge
                             normal,
                             cosmic='/imppc/labs/lplab/share/marc/refgen/hg38/mutect2/CosmicMuts.gatk.vcf.gz',
                             dbsnp='/imppc/labs/lplab/share/marc/refgen/hg38/mutect2/00-common_all.vcf',
-                            output,
-                            cores){
-
-  threads=as.numeric(cores)*2
+                            output){
 
   system(paste('java',
                '-jar',
                GenomeAnalysisTK,
-               '-nt', threads,
                '-T MuTect2',
                '-R', refgen,
                '-I:tumor', tumor,

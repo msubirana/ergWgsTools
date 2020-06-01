@@ -12,14 +12,13 @@ for(bam in bams){
   tumor <- gsub('_BL.bam', '_TI.bam', bam)
   sample_name <- gsub("_.*", '', basename(bam))
   output <- file.path(output_path, paste0(sample_name, '.vcf.gz'))
-  cores = 8
+  cores = 1
   name = paste0(sample_name, '_mutect2')
   queue = 'imppcv3'
   log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
   script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/mutect2_gatk3_8.R',
                  tumor,
                  normal,
-                 cores,
                  output)
 
   email = 'clusterigtpmsubirana@gmail.com'
