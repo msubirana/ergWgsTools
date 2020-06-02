@@ -46,6 +46,7 @@ dir.create(file.path(out_dir, 'strelka2'), showWarnings = F)
 strelka_merged <- file.path(out_dir, 'strelka2', paste0(sample_name, '_merged.vcf.gz'))
 strelka_merged_annotated <- file.path(out_dir, 'strelka2', paste0(sample_name, '_merged_annotated.vcf.gz'))
 strelka_merged_annotated_reheader <- file.path(out_dir, 'strelka2', paste0(sample_name, '_merged_annotated_rehader.vcf.gz'))
+strelka_merged_annotated_reheader_pass <- file.path(out_dir, 'strelka2', paste0(sample_name, '_merged_annotated_rehader_pass.vcf.gz'))
 
 purple_full(control_name=control_name,
             control=control,
@@ -60,4 +61,5 @@ purple_full(control_name=control_name,
             strelka_merged=strelka_merged,
             strelka_merged_annotated=strelka_merged_annotated,
             strelka_merged_annotated_reheader=strelka_merged_annotated_reheader,
+            strelka_merged_annotated_reheader_pass=strelka_merged_annotated_reheader_pass,
             output_dir_purple=output_dir_purple)

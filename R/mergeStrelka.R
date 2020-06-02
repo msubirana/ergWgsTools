@@ -6,6 +6,7 @@ mergeStrelka <- function(GenomeAnalysisTK='/imppc/labs/lplab/share/bin/GenomeAna
                          strelka_merged,
                          strelka_merged_annotated,
                          strelka_merged_annotated_reheader,
+                         strelka_merged_annotated_reheader_pass,
                          tumor_name,
                          purple='/imppc/labs/lplab/share/bin/purple/purple-2.43.jar'){
 
@@ -43,6 +44,10 @@ mergeStrelka <- function(GenomeAnalysisTK='/imppc/labs/lplab/share/bin/GenomeAna
                strelka_merged_annotated))
 
   unlink(new_header_file)
+
+  system(paste('bcftools view -f PASS', strelka_merged_annotated_reheader,
+               '>',
+               strelka_merged_annotated_reheader_pass))
 
 
 }
