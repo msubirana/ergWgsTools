@@ -17,7 +17,7 @@
 #' @export
 postCalling <- function(pass_vcf,
                         gatk4 = '/imppc/labs/lplab/share/bin/gatk-4.1.3.0/gatk',
-                        ref,
+                        ref='/imppc/labs/lplab/share/marc/refgen/hg38/hg38.fa',
                         bcftools = 'bcftools',
                         out_path){
 

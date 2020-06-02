@@ -1,5 +1,5 @@
 mergeStrelka <- function(GenomeAnalysisTK='/imppc/labs/lplab/share/bin/GenomeAnalysisTK-3.8-1-0-gf15c1c3ef/GenomeAnalysisTK.jar',
-                         refgen,
+                         refgen='/imppc/labs/lplab/share/marc/refgen/hg38/hg38.fa',
                          strelka_snvs,
                          strelka_indels,
                          control_name,
