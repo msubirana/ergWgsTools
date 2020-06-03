@@ -29,10 +29,17 @@ tumor_name <- rg[grepl('SM:', rg)]
 tumor_name <- gsub('SM:','',tumor_name)
 
 #out dirs
+dir.create(out_dir, showWarnings = F)
+
 output_dir_cobalt <- file.path(out_dir, 'cobalt')
 output_dir_amber <- file.path(out_dir, 'amber')
 output_dir_purple <- file.path(out_dir, 'purple')
 output_dir_gridss <- file.path(out_dir, 'gridss')
+
+dir.create(output_dir_cobalt, showWarnings = F)
+dir.create(output_dir_amber, showWarnings = F)
+dir.create(output_dir_purple, showWarnings = F)
+dir.create(output_dir_gridss, showWarnings = F)
 
 #strelka
 strelka_snvs <- paste0('/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/raw/',
