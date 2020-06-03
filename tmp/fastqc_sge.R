@@ -1,22 +1,25 @@
-fq_path <- '/imppc/labs/lplab/share/marc/insulinomas/raw/fastq'
+file_path <- getwd()
 
-fqs <- list.files(fq_path,
-           pattern = "*\\.gz",
-           full.names = T)
+files <- list.files(file_path,
+                   pattern = '\\.bam$',
+                   full.names = T)
+out_path <- getwd()
 
-for(fq in fqs){
+queue = 'imppcv3'
+log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
+cores = 8
+email = 'clusterigtpmsubirana@gmail.com'
 
-  sample_name <- gsub("_.*", '', basename(fq))
 
-  cores = 8
-  name = paste0('fq_', sample_name)
-  queue = 'imppcv3'
-  log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
+for(file in files){
+
+  sample_name <- gsub("_.*", '', basename(bam))
+
+  name = paste0('bam_', sample_name)
   script = paste('Rscript /imppc/labs/lplab/share/marc/repos/ergWgsTools/tmp/fastqc.R',
-                 fq,
-                 fq_path)
-
-  email = 'clusterigtpmsubirana@gmail.com'
+                 file,
+                 out_path,
+                 cores)
 
   RtoSge::toSge(cores = cores,
                 name = name,
