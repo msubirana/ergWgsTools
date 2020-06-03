@@ -17,7 +17,7 @@ gridss <- function(gridss='/imppc/labs/lplab/share/marc/repos/gridss/gridss.sh',
 
   system(paste(gridss,
                '-r', refgen,
-               '-o', output,
+               '-o', output_dir_gridss,
                '-t', threads,
                '-a', assembly,
                '-b', blacklist,
