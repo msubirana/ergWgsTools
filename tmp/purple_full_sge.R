@@ -7,7 +7,7 @@ bams <- list.files(bam_path,
                    full.names = T)
 
 cores <- 8
-memmory <- 24
+memmory <- '24'
 email = 'clusterigtpmsubirana@gmail.com'
 log = '/imppc/labs/lplab/share/marc/insulinomas/logs'
 queue = 'imppcv3'
