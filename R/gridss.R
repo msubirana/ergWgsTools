@@ -7,10 +7,13 @@ gridss <- function(gridss='/imppc/labs/lplab/share/marc/repos/gridss/gridss.sh',
                    tumor,
                    output_dir_gridss,
                    threads,
-                   gc_profile='/imppc/labs/lplab/share/marc/refgen/purple/GC_profile.hg38.1000bp.cnp'){
+                   refgen='/imppc/labs/lplab/share/marc/refgen/hg38/hg38.fa',
+                   gc_profile='/imppc/labs/lplab/share/marc/refgen/purple/GC_profile.hg38.1000bp.cnp',
+                   jvmheap='24g'){
 
   sample_name <- gsub('_BL', '', control_name)
   output <- file.path(output_dir_gridss, paste0(sample_name, '.vcf'))
+  assembly <- file.path(output_dir_gridss, paste0(sample_name, '_assembly.bam'))
 
   system(paste(gridss,
                '-r', refgen,
@@ -19,10 +22,11 @@ gridss <- function(gridss='/imppc/labs/lplab/share/marc/repos/gridss/gridss.sh',
                '-a', assembly,
                '-b', blacklist,
                '--jar', gridss_jar,
-               '--jvmheap 25g',
+               '--jvmheap', jvmheap,
                '--labels', paste0(control_name, ",", tumor_name),
                control, tumor))
 
 
 
 }
+

@@ -20,12 +20,13 @@ for(bam in bams){
                  out_path)
 
   email = 'clusterigtpmsubirana@gmail.com'
-
+  memmory = 8
   RtoSge::toSge(cores = cores,
                 name = name,
                 queue = queue,
                 log = log,
                 script = script,
-                email = email)
+                email = email,
+                memmory=memmory)
 
 }

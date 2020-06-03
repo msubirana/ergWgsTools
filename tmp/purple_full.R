@@ -32,6 +32,7 @@ tumor_name <- gsub('SM:','',tumor_name)
 output_dir_cobalt <- file.path(out_dir, 'cobalt')
 output_dir_amber <- file.path(out_dir, 'amber')
 output_dir_purple <- file.path(out_dir, 'purple')
+output_dir_gridss <- file.path(out_dir, 'gridss')
 
 #strelka
 strelka_snvs <- paste0('/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/vcf/strelka2/raw/',
@@ -55,6 +56,7 @@ purple_full(control_name=control_name,
             output_dir_cobalt=output_dir_cobalt,
             threads=threads,
             output_dir_amber=output_dir_amber,
+            output_dir_gridss=output_dir_gridss,
             refgen=refgen,
             strelka_snvs=strelka_snvs,
             strelka_indels=strelka_indels,
