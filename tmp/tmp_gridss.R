@@ -5,7 +5,7 @@ tumor_name='NET-59_TI'
 tumor='/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/NET-59_TI.bam'
 output_dir_gridss='/imppc/labs/lplab/share/marc/insulinomas/processed/hg38/bam/bwa/gridss'
 dir.create(output_dir_gridss, showWarnings = F)
-threads=16
+threads=8
 
 gridss(control_name=control_name,
        control=control,
